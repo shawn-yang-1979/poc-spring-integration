@@ -17,8 +17,19 @@ public class ClientBeanConfiguration {
 	private static final String TRANSFORMER = PREFIX + ".transformer";
 
 	@Bean
-	public AbstractClientConnectionFactory clientConnectionFactory() {
-		return new TcpNetClientConnectionFactory("localhost", 1234);
+	public CustomizedByteArrayStxEtxSerializer customizedByteArrayStxEtxSerializer() {
+		return new CustomizedByteArrayStxEtxSerializer();
+	}
+
+	@Bean
+	public AbstractClientConnectionFactory clientConnectionFactory(
+			CustomizedByteArrayStxEtxSerializer customizedByteArrayStxEtxSerializer) {
+		TcpNetClientConnectionFactory ccf = new TcpNetClientConnectionFactory("localhost", 1234);
+		ccf.setDeserializer(customizedByteArrayStxEtxSerializer);
+		ccf.setSerializer(customizedByteArrayStxEtxSerializer);
+		ccf.setLookupHost(false); // if you use IP only
+		ccf.setSingleUse(true); // create multiple connection
+		return ccf;
 	}
 
 	@Bean

@@ -15,8 +15,13 @@ public class ServerBeanConfiguration {
 	private static final String TRANSFORMER = PREFIX + ".transformer";
 
 	@Bean
-	public AbstractServerConnectionFactory serverConnectionFactory() {
-		return new TcpNetServerConnectionFactory(1234);
+	public AbstractServerConnectionFactory serverConnectionFactory(
+			CustomizedByteArrayStxEtxSerializer customizedByteArrayStxEtxSerializer) {
+		TcpNetServerConnectionFactory scf = new TcpNetServerConnectionFactory(1234);
+		scf.setSerializer(customizedByteArrayStxEtxSerializer);
+		scf.setDeserializer(customizedByteArrayStxEtxSerializer);
+		scf.setLookupHost(false);// if use IP only
+		return scf;
 	}
 
 	@Bean
