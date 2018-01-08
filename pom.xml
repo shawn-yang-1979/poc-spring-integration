@@ -90,6 +90,8 @@
 	</build>
 	<modules>
 		<module>poc-spring-integration-mqtt</module>
-		<module>poc-spring-integration-tcp</module>
+		<module>poc-spring-integration-tcp-common</module>
+		<module>poc-spring-integration-tcp-client</module>
+		<module>poc-spring-integration-tcp-server</module>
 	</modules>
 </project>

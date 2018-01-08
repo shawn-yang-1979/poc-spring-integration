@@ -46,7 +46,7 @@ public class CustomizedByteArrayStxEtxSerializer extends AbstractPooledBufferByt
 			checkClosure(etx2);
 			// etx1 != ETX1 || etx2 != ETX2 is complain by code analyzer.
 			if (etx2 != ETX2) {
-				throw new MessageMappingException("Expected 0xFA0x5A to begin message");
+				throw new MessageMappingException("Expected 0x7E0xA5 to begin message");
 			}
 
 			byte[] data = copyToSizedArray(buffer, n - 1); // don't copy crc

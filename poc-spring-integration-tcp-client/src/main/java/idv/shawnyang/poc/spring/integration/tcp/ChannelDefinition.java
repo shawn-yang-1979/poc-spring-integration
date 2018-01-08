@@ -14,46 +14,29 @@ public class ChannelDefinition {
 
 		private static final String THING_TYPE_ID = "TcpClient";
 
-		public static class Inbound {
-			private Inbound() {
+		public static class InboundAdapter {
+			private InboundAdapter() {
 			}
 
-			private static final String CHANNEL_ID = "Inbound";
+			private static final String CHANNEL_ID = "InboundAdapter";
 			public static final String CHANNEL_UID_LOCAL = SEPARATOR + MODULE_ID + SEPARATOR + THING_TYPE_ID + SEPARATOR
 					+ CHANNEL_ID + SEPARATOR;
 		}
 
-		public static class Outbound {
-			private Outbound() {
+		public static class OutboundAdapter {
+			private OutboundAdapter() {
 			}
 
-			private static final String CHANNEL_ID = "Outbound";
+			private static final String CHANNEL_ID = "OutboundAdapter";
 			public static final String CHANNEL_UID_LOCAL = SEPARATOR + MODULE_ID + SEPARATOR + THING_TYPE_ID + SEPARATOR
 					+ CHANNEL_ID + SEPARATOR;
 		}
 
-	}
-	
-	public static class TcpServer {
-		private TcpServer() {
-		}
-
-		private static final String THING_TYPE_ID = "TcpClTcpServerient";
-
-		public static class Inbound {
-			private Inbound() {
+		public static class OutboundGateway {
+			private OutboundGateway() {
 			}
 
-			private static final String CHANNEL_ID = "Inbound";
-			public static final String CHANNEL_UID_LOCAL = SEPARATOR + MODULE_ID + SEPARATOR + THING_TYPE_ID + SEPARATOR
-					+ CHANNEL_ID + SEPARATOR;
-		}
-
-		public static class Outbound {
-			private Outbound() {
-			}
-
-			private static final String CHANNEL_ID = "Outbound";
+			private static final String CHANNEL_ID = "OutboundGateway";
 			public static final String CHANNEL_UID_LOCAL = SEPARATOR + MODULE_ID + SEPARATOR + THING_TYPE_ID + SEPARATOR
 					+ CHANNEL_ID + SEPARATOR;
 		}
